@@ -20,7 +20,7 @@ pipeline {
        }
        stage('relase') {
           environment {
-             GITHUB_TOKEN = credentials(github_token)
+             GITHUB_TOKEN = credentials('github_token')
           }
           steps {
              sh 'curl -sL https://git.io/goreleaser | bash'
