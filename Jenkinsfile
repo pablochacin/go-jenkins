@@ -1,7 +1,7 @@
 pipeline {
    agent any
    environment {
-      GO111MODULES=on
+      GO111MODULES="on"
    }
    stages {
       stage ('build') {
