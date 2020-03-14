@@ -9,7 +9,7 @@ pipeline {
    stages {
       stage ('build') {
           steps {
-             go 'build'
+             sh 'go build'
           }
       }
    }
