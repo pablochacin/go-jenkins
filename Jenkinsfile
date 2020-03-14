@@ -7,11 +7,28 @@ pipeline {
       go 'go1.14'
    }
    stages {
-      stage ('build') {
+       stage ('build') {
           steps {
              sh 'go build'
           }
-      }
+         
+       }
+       stage('test'){
+           steps {
+               sh 'go test ./...'
+            }
+       }
+       stage('relase') {
+          when {
+             
+          }
+          environment {
+             GITHUB_TOKEN = credentials(github_token)
+          }
+          steps {
+             sh 'curl -sL https://git.io/goreleaser | bash'
+          }
+       }
    }
 }
      
