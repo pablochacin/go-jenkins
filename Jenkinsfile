@@ -19,6 +19,9 @@ pipeline {
             }
        }
        stage('relase') {
+          when {
+             buildingTag()
+          }
           environment {
              GITHUB_TOKEN = credentials('github_token')
           }
